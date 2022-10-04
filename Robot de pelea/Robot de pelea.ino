@@ -21,22 +21,22 @@ const int VBWD = 150;
 //Declaares the Servoss Angle to move the shovel
 const int SAng = 90;
 
-char data = 0;
+char Data = 0;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("On");
   BTP.begin(38400);
-  RS.attach(3);
-  LS.attach(4);
+  RS.attach(9);
+  LS.attach(10);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   if (BTP.available()) {
-    data = BTP.read();
-    switch (data) {
+    Data = BTP.read();
+    switch (Data) {
       case 'F':
         fwd();
         break;
