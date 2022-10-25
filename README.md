@@ -1,4 +1,6 @@
 # CESD-Ironbot-Sumo-Robot
+#---------------------
+#deprecated
 ---Repositorio del robot de pelea sumo para el ironbot 2022.
 
 Explicacion del robot:
