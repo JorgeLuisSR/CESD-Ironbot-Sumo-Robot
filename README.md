@@ -19,3 +19,40 @@ Especificaciones:
 UART(velocidad) - Role(Eslave:0-Master:1) - CMODE(conexion especifica o aleatoria) - BIND(direccion si CMODE=0) - ORGL[reset to default values] - RESET [exit at mode]
 Tomando '?' como consulta y '=<value>' como una asigación [excepto para comandos funcionales]
     Robot-code: tiene el codigo de manejo de los comando Bluetooth y el movimiento de todos los componentes
+#include <SoftwareSerial.h>
+
+SoftwareSerial blue(2,3);
+char NOMBRE[8] = "ironbot";
+char BPS = '6';
+char PASS[9] = "megacesd";
+
+void setup ()
+{
+  blue.begin(38400);
+  
+  pinMode (13,OUTPUT);
+  digitalWrite (13,HIGH);
+  delay(3000);
+
+  digitalWrite (13,LOW);
+
+  blue.print("AT");
+  delay(1000);
+
+  blue.print("AT+NAME");
+  blue.print(NOMBRE);
+  delay(1000);
+
+  blue.print("AT+BAUND");
+  blue.print(BPS);
+  delay(1000);
+
+  
+  blue.print("AT+PIN");
+  blue.print(PASS);
+  delay(1000);
+ 
+}
+void loop()
+[  digitalWrite (13,!digitalRead (13));
+delay(300)
